@@ -31,19 +31,22 @@ export default function App() {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
       obj=doc.data();
-      console.log(obj);
       arr.push(obj)
     });
     setFirebaseData(arr);
-    console.log(firebaseData)
   }
   
   return (
-    <View>
+    <View style={{paddingTop:"12%"}}>
       <StatusBar translucent backgroundColor="transparent" barStyle='light-content' />
       {
         firebaseData.map((data, index) => 
-          <Text style={{marginTop: 20}}>Hotel Name {data.hotel_name}</Text>
+          <ImageBackground source={{uri: data.image}} style={{height: 200, width:"97%", marginLeft:"2.5%", marginBottom: 15}} imageStyle={{borderRadius: 10, }} resizeMode="cover">
+            <View style={{backgroundColor:"rgba(0, 0, 0, 0.7)", width:"97%", position:"absolute", bottom: 0, paddingHorizontal: 15, paddingVertical: 13, borderBottomLeftRadius  : 10, borderBottomRightRadius: 10}}>
+              <Text style={{color:"#fff", fontSize: 24, fontWeight:"bold"}}>{data.hotel_name}</Text>
+              <Text style={{color:"#fff", fontSize: 16, fontWeight:"500"}}>₹{data.price} <Text style={{textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>{data.mrp}</Text></Text>
+            </View>
+          </ImageBackground>
         )
       }
     </View>
@@ -53,8 +56,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#fff'
   },
 });
