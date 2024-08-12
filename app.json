@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "nk-internship",
+    "name": "Naga Hills",
     "slug": "nk-internship",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,10 +18,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.nielit.intership2024"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d483b01f-6191-4860-b344-1c14ffa00e11"
+      }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
